@@ -1,0 +1,31 @@
+/* App.css */
+.container {
+  max-width: 800px;
+}
+
+.card {
+  border: none;
+}
+
+.card-header {
+  background: #0078D4;
+  color: white;
+}
+
+.card-body {
+  padding: 2rem;
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+.btn-primary {
+  background-color: #0078D4;
+  border-color: #0078D4;
+}
+
+.btn-primary:hover {
+  background-color: #005a9e;
+  border-color: #005a9e;
+}
