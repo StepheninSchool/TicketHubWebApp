@@ -30,9 +30,8 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Use the absolute URL to your API endpoint.
       const apiUrl = 'https://nscc-0448750-tickets-api-ffesg5ggdqf9fvht.canadacentral-01.azurewebsites.net/api/Tickets';
-      console.log("Posting to:", apiUrl); // Log URL for debugging
+      console.log("Posting to:", apiUrl);
 
       const response = await fetch(apiUrl, {
         method: 'POST',
@@ -44,11 +43,13 @@ function App() {
         alert('Ticket Purchased!');
         setTicketData(initialTicketData);
       } else {
-        alert('Submission failed.');
+        // Try to parse response details
+        const errorData = await response.json();
+        alert(`Submission failed: ${errorData.message || 'Unknown error'}`);
       }
     } catch (err) {
       console.error('Submission error:', err);
-      alert('An error occurred.');
+      alert(`An error occurred: ${err.message}`);
     }
   };
 
