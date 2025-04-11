@@ -41,7 +41,7 @@ function App() {
       });
 
       if (response.ok) {
-        alert('Ticket submitted successfully!');
+        alert('Ticket Purchased!');
         setTicketData(initialTicketData);
       } else {
         alert('Submission failed.');
