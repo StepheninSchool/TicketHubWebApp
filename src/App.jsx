@@ -53,55 +53,86 @@ function App() {
   };
 
   return (
-    <div className="container py-5">
-      <div className="text-center mb-4">
-        <h1>Parcels Live in Concert</h1>
-        <h4>Coke Cola Stadium, Toronto</h4>
-        <p>October 21, 2025</p>
-        <img src="/parcels.jpg" alt="Parcels" className="img-fluid rounded shadow-sm" />
-      </div>
+    <>
+      <nav className="navbar navbar-expand-lg navbar-custom">
+        <div className="container-fluid">
+          <a className="navbar-brand" href="#">TicketHub</a>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav ms-auto">
+              <li className="nav-item">
+                <a className="nav-link" href="#">Home</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#">Events</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
 
-      <div className="card shadow-sm">
-        <div className="card-body">
-          <h4 className="card-title mb-3">Ticket Purchase Form</h4>
-          <form onSubmit={handleSubmit} className="row g-3">
-            <input type="hidden" name="ConcertId" value={ticketData.ConcertId} />
+      <div className="container-fluid py-5">
+        <div className="text-center mb-4">
+          <h1>Parcels Live in Concert</h1>
+          <h4>Coke Cola Stadium, Toronto</h4>
+          <p>October 21, 2025</p>
+          <img src="/parcels.jpg" alt="Parcels" className="img-fluid rounded shadow-sm" />
+        </div>
 
-            {[
-              { label: 'Email Address', name: 'Email', type: 'email' },
-              { label: 'Full Name', name: 'Name', type: 'text' },
-              { label: 'Phone Number', name: 'Phone', type: 'tel' },
-              { label: 'Quantity', name: 'Quantity', type: 'number', min: 1, max: 10 },
-              { label: 'Credit Card Number', name: 'CreditCard', type: 'text' },
-              { label: 'Expiration (MM/YY)', name: 'Expiration', type: 'text' },
-              { label: 'Security Code', name: 'SecurityCode', type: 'text' },
-              { label: 'Street Address', name: 'Address', type: 'text' },
-              { label: 'City', name: 'City', type: 'text' },
-              { label: 'Province', name: 'Province', type: 'text' },
-              { label: 'Postal Code', name: 'PostalCode', type: 'text' },
-              { label: 'Country', name: 'Country', type: 'text' }
-            ].map(({ label, name, ...rest }) => (
-              <div className="col-md-6" key={name}>
-                <label htmlFor={name} className="form-label">{label}</label>
-                <input
-                  className="form-control"
-                  id={name}
-                  name={name}
-                  value={ticketData[name]}
-                  onChange={handleChange}
-                  required
-                  {...rest}
-                />
+        <div className="card shadow-sm">
+          <div className="card-body">
+            <h4 className="card-title mb-3">Ticket Purchase Form</h4>
+            <form onSubmit={handleSubmit} className="row g-3">
+              <input type="hidden" name="ConcertId" value={ticketData.ConcertId} />
+
+              {[
+                { label: 'Email Address', name: 'Email', type: 'email' },
+                { label: 'Full Name', name: 'Name', type: 'text' },
+                { label: 'Phone Number', name: 'Phone', type: 'tel' },
+                { label: 'Quantity', name: 'Quantity', type: 'number', min: 1, max: 10 },
+                { label: 'Credit Card Number', name: 'CreditCard', type: 'text' },
+                { label: 'Expiration (MM/YY)', name: 'Expiration', type: 'text' },
+                { label: 'Security Code', name: 'SecurityCode', type: 'text' },
+                { label: 'Street Address', name: 'Address', type: 'text' },
+                { label: 'City', name: 'City', type: 'text' },
+                { label: 'Province', name: 'Province', type: 'text' },
+                { label: 'Postal Code', name: 'PostalCode', type: 'text' },
+                { label: 'Country', name: 'Country', type: 'text' }
+              ].map(({ label, name, ...rest }) => (
+                <div className="col-md-6" key={name}>
+                  <label htmlFor={name} className="form-label">{label}</label>
+                  <input
+                    className="form-control"
+                    id={name}
+                    name={name}
+                    value={ticketData[name]}
+                    onChange={handleChange}
+                    required
+                    {...rest}
+                  />
+                </div>
+              ))}
+
+              <div className="col-12 mt-3">
+                <button type="submit" className="btn btn-primary w-100">Purchase Ticket</button>
               </div>
-            ))}
-
-            <div className="col-12 mt-3">
-              <button type="submit" className="btn btn-primary w-100">Purchase Ticket</button>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+
+      <footer className="custom-footer mt-5">
+        <div className="container-fluid text-center">
+          <p className="mb-0">&copy; {new Date().getFullYear()} TicketHub. All rights reserved.</p>
+        </div>
+      </footer>
+    </>
   );
 }
 

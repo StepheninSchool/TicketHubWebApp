@@ -1,31 +1,60 @@
-/* App.css */
-.container {
-  max-width: 800px;
-}
+/* Custom App Styles */
 
+/* Card customizations */
 .card {
   border: none;
 }
-
 .card-header {
-  background: #0078D4;
-  color: white;
+  background-color: #0078D4 !important;
+  color: #ffffff;
 }
-
 .card-body {
   padding: 2rem;
 }
 
+/* Form styles */
 .form-label {
   font-weight: bold;
 }
 
+/* Override Bootstrap btn-primary */
 .btn-primary {
   background-color: #0078D4;
   border-color: #0078D4;
 }
-
 .btn-primary:hover {
   background-color: #005a9e;
   border-color: #005a9e;
+}
+
+/* Navbar customizations */
+.navbar-custom {
+  background-color: #0078D4;
+  padding: 1rem;
+}
+.navbar-custom .navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #ffffff !important;
+}
+.navbar-custom .nav-link {
+  color: #ffffff !important;
+  margin-right: 1rem;
+}
+
+/* Footer customizations */
+.custom-footer {
+  background-color: #0078D4;
+  color: #ffffff;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+/* Ensure full width container for navbar and footer */
+.navbar-custom > .container,
+.custom-footer > .container {
+  max-width: 100%;
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
