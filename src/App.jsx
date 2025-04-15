@@ -171,14 +171,133 @@ function App () {
                   name='Quantity'
                   type='number'
                   min='1'
-                  max='4'
+                  max='10'
                   value={ticketData.Quantity}
                   onChange={handleChange}
                   required
                 />
               </div>
 
-             
+              <div className='col-md-6'>
+                <label htmlFor='CreditCard' className='form-label'>
+                  Credit Card Number
+                </label>
+                <input
+                  className='form-control'
+                  id='CreditCard'
+                  name='CreditCard'
+                  type='text'
+                  value={ticketData.CreditCard}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+
+              <div className='col-md-6'>
+                <label htmlFor='Expiration' className='form-label'>
+                  Expiration (MM/YY)
+                </label>
+                <input
+                  className='form-control'
+                  id='Expiration'
+                  name='Expiration'
+                  type='text'
+                  value={ticketData.Expiration}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+
+              <div className='col-md-6'>
+                <label htmlFor='SecurityCode' className='form-label'>
+                  Security Code
+                </label>
+                <input
+                  className='form-control'
+                  id='SecurityCode'
+                  name='SecurityCode'
+                  type='text'
+                  value={ticketData.SecurityCode}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+
+              <div className='col-md-6'>
+                <label htmlFor='Address' className='form-label'>
+                  Street Address
+                </label>
+                <input
+                  className='form-control'
+                  id='Address'
+                  name='Address'
+                  type='text'
+                  value={ticketData.Address}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+
+              <div className='col-md-6'>
+                <label htmlFor='City' className='form-label'>
+                  City
+                </label>
+                <input
+                  className='form-control'
+                  id='City'
+                  name='City'
+                  type='text'
+                  value={ticketData.City}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+
+              <div className='col-md-6'>
+                <label htmlFor='Province' className='form-label'>
+                  Province
+                </label>
+                <input
+                  className='form-control'
+                  id='Province'
+                  name='Province'
+                  type='text'
+                  value={ticketData.Province}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+
+              <div className='col-md-6'>
+                <label htmlFor='PostalCode' className='form-label'>
+                  Postal Code
+                </label>
+                <input
+                  className='form-control'
+                  id='PostalCode'
+                  name='PostalCode'
+                  type='text'
+                  value={ticketData.PostalCode}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+
+              <div className='col-md-6'>
+                <label htmlFor='Country' className='form-label'>
+                  Country
+                </label>
+                <input
+                  className='form-control'
+                  id='Country'
+                  name='Country'
+                  type='text'
+                  value={ticketData.Country}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+
               <div className='col-12 mt-3'>
                 <button type='submit' className='btn btn-primary'>
                   Purchase Ticket
