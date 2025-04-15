@@ -31,7 +31,7 @@ function App () {
     e.preventDefault();
   
     const apiUrl = 'https://nscc-0448750-tickets-api-ffesg5ggdqf9fvht.canadacentral-01.azurewebsites.net/api/Tickets';
-    
+
     // MM/YY format check source: https://regex101.com/
     const mmYYRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
     if (!mmYYRegex.test(ticketData.Expiration)) {
@@ -45,6 +45,14 @@ function App () {
       alert('Enter a valid Canadian or U.S. postal code');
       return;
     }
+
+    // Name check (2–50 characters, letters, spaces, periods, apostrophes, or hyphens)
+    const nameRegex = /^[a-zA-Z\s.'-]{2,50}$/;
+    if (!nameRegex.test(ticketData.Name)) {
+      alert('Name must only contain letters, spaces, periods, apostrophes, or hyphens (2–50 characters)');
+      return;
+    }
+    
 
     // Credit card number check (basic Luhn algorithm)
     // source: https://en.wikipedia.org/wiki/Luhn_algorithm
@@ -62,13 +70,13 @@ function App () {
     };
 
     if (!luhnCheck(ticketData.CreditCard)) {
-      alert('Invalid credit card number');
+      alert('Invalid credit card number. Please check and try again.');
       return;
     }
   
     // Quantity range (although also handled by input attributes)
-    if (ticketData.Quantity < 1 || ticketData.Quantity > 10) {
-      alert('Ticket quantity must be between 1 and 10');
+    if (ticketData.Quantity < 1 || ticketData.Quantity > 4) {
+      alert('Ticket quantity must be between 1 and 4. Please adjust your selection');
       return;
     }
   
