@@ -131,8 +131,54 @@ function App () {
                 />
               </div>
 
-              
+              <div className='col-md-6'>
+                <label htmlFor='Name' className='form-label'>
+                  Full Name
+                </label>
+                <input
+                  className='form-control'
+                  id='Name'
+                  name='Name'
+                  type='text'
+                  value={ticketData.Name}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
 
+              <div className='col-md-6'>
+                <label htmlFor='Phone' className='form-label'>
+                  Phone Number
+                </label>
+                <input
+                  className='form-control'
+                  id='Phone'
+                  name='Phone'
+                  type='tel'
+                  value={ticketData.Phone}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+
+              <div className='col-md-6'>
+                <label htmlFor='Quantity' className='form-label'>
+                  Quantity
+                </label>
+                <input
+                  className='form-control'
+                  id='Quantity'
+                  name='Quantity'
+                  type='number'
+                  min='1'
+                  max='4'
+                  value={ticketData.Quantity}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+
+             
               <div className='col-12 mt-3'>
                 <button type='submit' className='btn btn-primary'>
                   Purchase Ticket
