@@ -30,17 +30,37 @@ function App () {
   const handleSubmit = async e => {
     e.preventDefault();
   
-    // MM/YY format check
+    // MM/YY format check source: https://regex101.com/
     const mmYYRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
     if (!mmYYRegex.test(ticketData.Expiration)) {
       alert('Expiration must be in MM/YY format');
       return;
     }
   
-    // Postal code check (Canadian or US)
+    // Postal code check (Canadian or US) source: https://regex101.com/
     const postalRegex = /(^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$)|(^\d{5}(-\d{4})?$)/;
     if (!postalRegex.test(ticketData.PostalCode)) {
       alert('Enter a valid Canadian or U.S. postal code');
+      return;
+    }
+
+    // Credit card number check (basic Luhn algorithm)
+    // source: https://en.wikipedia.org/wiki/Luhn_algorithm
+    
+    const luhnCheck = (cardNumber) => {
+      const digits = cardNumber.split('').reverse().map(Number);
+      const sum = digits.reduce((acc, digit, index) => {
+        if (index % 2 === 1) {
+          digit *= 2;
+          if (digit > 9) digit -= 9;
+        }
+        return acc + digit;
+      }, 0);
+      return sum % 10 === 0;
+    };
+
+    if (!luhnCheck(ticketData.CreditCard)) {
+      alert('Invalid credit card number');
       return;
     }
   
