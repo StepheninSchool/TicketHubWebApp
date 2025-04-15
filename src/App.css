@@ -58,11 +58,12 @@
   padding-left: 1rem;
   padding-right: 1rem;
 }
-/* Override autofill background and text colors */
-input:-webkit-autofill,
-textarea:-webkit-autofill,
-select:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0 1000px #ffffff inset !important;
-  box-shadow: 0 0 0 1000px #ffffff inset !important;
-  -webkit-text-fill-color: #000000 !important;
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .navbar-custom .nav-link {
+    margin-right: 0.5rem;
+  }
+  .custom-footer {
+    padding: 1rem 0;
+  }
 }
