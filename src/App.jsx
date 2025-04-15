@@ -28,31 +28,48 @@ function App () {
   }
 
   const handleSubmit = async e => {
-    e.preventDefault()
+    e.preventDefault();
+  
+    // MM/YY format check
+    const mmYYRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
+    if (!mmYYRegex.test(ticketData.Expiration)) {
+      alert('Expiration must be in MM/YY format');
+      return;
+    }
+  
+    // Postal code check (Canadian or US)
+    const postalRegex = /(^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$)|(^\d{5}(-\d{4})?$)/;
+    if (!postalRegex.test(ticketData.PostalCode)) {
+      alert('Enter a valid Canadian or U.S. postal code');
+      return;
+    }
+  
+    // Quantity range (although also handled by input attributes)
+    if (ticketData.Quantity < 1 || ticketData.Quantity > 10) {
+      alert('Ticket quantity must be between 1 and 10');
+      return;
+    }
+  
+    // Proceed if valid
     try {
-      const apiUrl =
-        'https://nscc-0448750-tickets-api-ffesg5ggdqf9fvht.canadacentral-01.azurewebsites.net/api/Tickets'
-      console.log('Posting to:', apiUrl)
-
       const response = await fetch(apiUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(ticketData)
-      })
-
+      });
+  
       if (response.ok) {
-        alert('Ticket Purchased!')
-        setTicketData(initialTicketData)
+        alert('Ticket Purchased!');
+        setTicketData(initialTicketData);
       } else {
-        // Try to parse response details
-        const errorData = await response.json()
-        alert(`Submission failed: ${errorData.message || 'Unknown error'}`)
+        const errorData = await response.json();
+        alert(`Submission failed: ${errorData.message || 'Unknown error'}`);
       }
     } catch (err) {
-      console.error('Submission error:', err)
-      alert(`An error occurred: ${err.message}`)
+      console.error('Submission error:', err);
+      alert(`An error occurred: ${err.message}`);
     }
-  }
+  };
 
   return (
     <>
@@ -166,7 +183,7 @@ function App () {
                   Quantity
                 </label>
                 <input
-                  className='form-control'
+                  className='Qauntity'
                   id='Quantity'
                   name='Quantity'
                   type='number'
