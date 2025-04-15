@@ -30,6 +30,8 @@ function App () {
   const handleSubmit = async e => {
     e.preventDefault();
   
+    const apiUrl = 'https://nscc-0448750-tickets-api-ffesg5ggdqf9fvht.canadacentral-01.azurewebsites.net/api/Tickets';
+    
     // MM/YY format check source: https://regex101.com/
     const mmYYRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
     if (!mmYYRegex.test(ticketData.Expiration)) {
@@ -46,7 +48,7 @@ function App () {
 
     // Credit card number check (basic Luhn algorithm)
     // source: https://en.wikipedia.org/wiki/Luhn_algorithm
-    
+
     const luhnCheck = (cardNumber) => {
       const digits = cardNumber.split('').reverse().map(Number);
       const sum = digits.reduce((acc, digit, index) => {
