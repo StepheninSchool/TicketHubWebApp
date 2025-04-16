@@ -1,48 +1,61 @@
-/* Custom App Styles */
+/* =========================
+   Global Variables & Base Styles
+   ========================= */
 
-/* Card customizations */
-.card {
-  border: none;
-}
-.card-header {
-  background-color: #0078D4 !important;
-  color: #ffffff;
-}
-.card-body {
-  padding: 2rem;
-}
-
-/* Form styles */
+/* Base styles for form labels */
 .form-label {
-  font-weight: bold;
+  font-weight: semibold;
 }
 
-/* Override Bootstrap btn-primary */
-.btn-primary {
-  background-color: #0078D4;
+/* Base styles for form controls */
+.form-control {
+  border-radius: 2.5rem !important;
+  border: 1px solid #0078D4 !important;
+  padding: 0.5rem 1rem;
+}
+
+.form-control:focus {
   border-color: #0078D4;
-}
-.btn-primary:hover {
-  background-color: #005a9e;
-  border-color: #005a9e;
+  box-shadow: 0 0 0 0.2rem rgba(0, 120, 212, 0.25);
 }
 
-/* Navbar customizations */
+.form-container {
+  position: relative;
+  z-index: 3; /* Higher than Bootstrap's default for carousels */
+}
+
+/* =========================
+   Navbar
+   ========================= */
+
 .navbar-custom {
   background-color: #0078D4;
   padding: 1rem;
 }
+
 .navbar-custom .navbar-brand {
   font-weight: bold;
   font-size: 1.5rem;
   color: #ffffff !important;
 }
+
 .navbar-custom .nav-link {
   color: #ffffff !important;
   margin-right: 1rem;
 }
 
-/* Footer customizations */
+/* Ensure full width container for navbar */
+.navbar-custom > .container {
+  max-width: 100%;
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* =========================
+   Footer
+   ========================= */
+
 .custom-footer {
   background-color: #0078D4;
   color: #ffffff;
@@ -50,19 +63,143 @@
   text-align: center;
 }
 
-/* Ensure full width container for navbar and footer */
-.navbar-custom > .container,
+/* Ensure full width container for footer */
 .custom-footer > .container {
   max-width: 100%;
   width: 100%;
   padding-left: 1rem;
   padding-right: 1rem;
 }
-/* Responsive adjustments for smaller screens */
+
+/* =========================
+   Cards
+   ========================= */
+
+.card {
+  border: none;
+}
+
+.card-header {
+  background-color: #0078D4 !important;
+  color: #ffffff;
+}
+
+.card-body {
+  padding: 2rem;
+}
+
+/* =========================
+   Carousel
+   ========================= */
+
+.carousel {
+  margin: 0 auto;
+  max-width: 100%;
+  width: 100%;
+}
+
+.carousel-inner {
+  height: 400px; /* Adjust as needed */
+}
+
+.carousel-inner img {
+  height: 100%;
+  width: 100%;
+  object-fit: center;
+  object-position: center;
+  animation: zoom 5s ease-in-out infinite;
+}
+
+.carousel {
+  position: relative;
+  z-index: 1;
+}
+.carousel-fade .carousel-item {
+  transition: opacity 1.5s ease-in-out;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+/* Zoom animation for carousel images */
+@keyframes zoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.5);
+  }
+}
+
+/* =========================
+   Hover Image Effects
+   ========================= */
+
+.hover-img-wrapper {
+  position: relative;
+  display: flexbox;
+  justify-content: center;
+  width: 100%;
+  max-width: 500px;
+}
+
+.hover-img-wrapper img {
+  display: flex;
+  width: 100%;
+  height: auto;
+  transition: opacity 0.3s ease;
+  border-radius: 1rem;
+}
+
+.hover-img-wrapper .main-img,
+.hover-img-wrapper .hover-img {
+  position: relative;
+  z-index: 1;
+  border-radius: 1rem;
+}
+
+.hover-img-wrapper:hover .hover-img {
+  opacity: 1;
+}
+
+.hover-img-wrapper:hover .main-img {
+  opacity: 0.5;
+}
+
+.hover-img-wrapper:hover img {
+  transform: scale(1.5);
+  transition: transform 0.35s ease;
+}
+
+/* =========================
+   Buttons
+   ========================= */
+
+/* Override Bootstrap btn-primary */
+.btn-primary {
+  background-color: #0078D4;
+  border-color: #0078D4;
+}
+
+.btn-primary:hover {
+  background-color: #005a9e;
+  border-color: #005a9e;
+}
+
+/* =========================
+   Responsive Design
+   ========================= */
+
 @media (max-width: 768px) {
   .navbar-custom .nav-link {
     margin-right: 0.5rem;
   }
+
   .custom-footer {
     padding: 1rem 0;
   }
