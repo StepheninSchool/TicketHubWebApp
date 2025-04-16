@@ -98,24 +98,26 @@
   width: 100%;
 }
 
-.carousel-inner {
-  height: 400px; /* Adjust as needed */
+.carousel-inner{
+  animation: forwards 10s ease-in-out infinite;
+  height: 400px;
 }
 
 .carousel-inner img {
   height: 100%;
   width: 100%;
-  object-fit: center;
+  object-fit: cover;
   object-position: center;
-  animation: zoom 5s ease-in-out infinite;
+
 }
 
 .carousel {
   position: relative;
   z-index: 1;
 }
+
 .carousel-fade .carousel-item {
-  transition: opacity 1.5s ease-in-out;
+  transition: opacity 2s ease-in-out;
 }
 
 .carousel-control-prev,

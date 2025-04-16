@@ -226,11 +226,14 @@ function App() {
       <div className="container pt-5 mt-5">
         <div className="row align-items-center">
           {/* Left: Carousel */}
+          
           <div className="col-md-6 mb-4 mb-md-0">
             <div
               id="parcelsCarousel"
               className="carousel slide carousel-fade"
               data-bs-ride="carousel"
+              data-bs-interval="10000"
+              position='center'
             >
               <div className="carousel-inner">
                 <div className="carousel-item active">
