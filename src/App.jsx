@@ -93,8 +93,7 @@ function App () {
     if (!provinceRegex.test(ticketData.Province)) {
       alert('Province/State must only contain letters, spaces, periods, apostrophes, or hyphens');
       return;
-    } else { 
-
+    } 
     // Credit card number check (basic Luhn algorithm)
     // source: https://en.wikipedia.org/wiki/Luhn_algorithm
 
@@ -405,6 +404,6 @@ function App () {
       </footer>
     </>
   )
-}}
+}
 
-export default App
+export default App;
