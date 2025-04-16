@@ -258,7 +258,7 @@ function App () {
                   name='Quantity'
                   type='number'
                   min='1'
-                  max='10'
+                  max='4'
                   value={ticketData.Quantity}
                   onChange={handleChange}
                   required
