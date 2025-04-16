@@ -111,14 +111,27 @@ function App () {
     // source: https://en.wikipedia.org/wiki/Luhn_algorithm
 
     const luhnCheck = (cardNumber) => {
+      // Remove spaces and dashes from the card number
       const digits = cardNumber.split('').reverse().map(Number);
+      
+      // Check if the card number is valid (only digits)
+      if (digits.some(isNaN)) {
+        alert('Credit card number must contain only digits.');
+        return false;
+      }
+      
       const sum = digits.reduce((acc, digit, index) => {
+        // If the index is odd, double the digit
+        // If the result is greater than 9, subtract 9
         if (index % 2 === 1) {
           digit *= 2;
           if (digit > 9) digit -= 9;
         }
+        // Sum the digits
         return acc + digit;
       }, 0);
+      // Check if the sum is divisible by 10
+      // If it is, the card number is valid
       return sum % 10 === 0;
     };
 
