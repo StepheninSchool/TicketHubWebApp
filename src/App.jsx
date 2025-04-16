@@ -52,7 +52,48 @@ function App () {
       alert('Name must only contain letters, spaces, periods, apostrophes, or hyphens (2–50 characters)');
       return;
     }
+
+    // Phone number check (10–15 digits) source: https://regex101.com/
+    // Allows optional '+' at the start for country code
+    const phoneRegex = /^\+?\d{10,15}$/;
+    if (!phoneRegex.test(ticketData.Phone)) {
+      alert('Enter a valid 10 digit phone number (with optional country code)');
+      return;
+    }
+
+    // Security code check (3 or 4 digits) source: https://regex101.com/
+    // Allows only digits
+    const cvcRegex = /^\d{3,4}$/;
+    if (!cvcRegex.test(ticketData.SecurityCode)) {
+      alert('Security Code must be 3 or 4 digits');
+      return;
+    }
+    // country check (2–50 characters, letters, spaces, hyphens, or apostrophes)
+    const countryRegex = /^[a-zA-Z\s'-]{2,50}$/;
+    if (!countryRegex.test(ticketData.Country)) {
+      alert('Country must only contain letters, spaces, hyphens, or apostrophes');
+      return;
+    }
+    // Address check (5–100 characters, letters, numbers, spaces, commas, hyphens, or periods)
+    const addressRegex = /^[a-zA-Z0-9\s,#.-]{5,100}$/;
+    if (!addressRegex.test(ticketData.Address)) {
+      alert('Address can include letters, numbers, spaces, commas, hyphens, or periods (min 5 characters)');
+      return;
+    }
+
+    // City check (2–50 characters, letters, spaces, periods, apostrophes, or hyphens)
+    const cityRegex = /^[a-zA-Z\s.'-]{2,50}$/;
+    if (!cityRegex.test(ticketData.City)) {
+      alert('City must only contain letters, spaces, periods, apostrophes, or hyphens (2–50 characters)');
+      return;
+    } 
     
+    //Province/State check (2–100 characters, letters, spaces, periods, apostrophes, or hyphens)
+    const provinceRegex = /^[a-zA-Z\s.'-]{2,100}$/;
+    if (!provinceRegex.test(ticketData.Province)) {
+      alert('Province/State must only contain letters, spaces, periods, apostrophes, or hyphens');
+      return;
+    } else { 
 
     // Credit card number check (basic Luhn algorithm)
     // source: https://en.wikipedia.org/wiki/Luhn_algorithm
@@ -364,6 +405,6 @@ function App () {
       </footer>
     </>
   )
-}
+}}
 
 export default App
