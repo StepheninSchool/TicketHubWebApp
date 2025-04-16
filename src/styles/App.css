@@ -123,8 +123,9 @@
 .carousel-control-prev,
 .carousel-control-next {
   position: absolute;
+  display:none;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-40%);
   z-index: 2;
 }
 

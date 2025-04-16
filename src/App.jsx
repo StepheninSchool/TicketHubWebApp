@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './App.css'
+import './styles/App.css'
 
 function App() {
   console.log('App loaded') // For debugging
@@ -227,10 +227,10 @@ function App() {
         <div className="row align-items-center">
           {/* Left: Carousel */}
           
-          <div className="col-md-6 mb-4 mb-md-0">
+          <div className="col-md-6 mb-4 mb-md-0 ">
             <div
               id="parcelsCarousel"
-              className="carousel slide carousel-fade"
+              className="carousel slide carousel-fade shadow-lg"
               data-bs-ride="carousel"
               data-bs-interval="10000"
               position='center'
