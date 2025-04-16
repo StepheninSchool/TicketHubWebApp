@@ -19,18 +19,27 @@ function App () {
     PostalCode: '',
     Country: ''
   }
-
+  // State to hold ticket data
+  // Using useState to manage the ticket data state
   const [ticketData, setTicketData] = useState(initialTicketData)
 
+  // Function to handle input changes
+  // This function updates the ticketData state when the user types in the form fields
   const handleChange = e => {
     const { name, value } = e.target
     setTicketData(prev => ({ ...prev, [name]: value }))
   }
 
+  // Function to handle form submissio
   const handleSubmit = async e => {
     e.preventDefault();
   
+    
     const apiUrl = 'https://nscc-0448750-tickets-api-ffesg5ggdqf9fvht.canadacentral-01.azurewebsites.net/api/Tickets';
+
+    //
+    //REGEX VALIDATION STARTS HERE
+    //
 
     // MM/YY format check source: https://regex101.com/
     const mmYYRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
@@ -68,7 +77,7 @@ function App () {
       alert('Security Code must be 3 or 4 digits');
       return;
     }
-    // country check (2–50 characters, letters, spaces, hyphens, or apostrophes)
+    // country check (2–50 characters, letters, spaces, hyphens, or apostrophes) source: https://regex101.com/
     const countryRegex = /^[a-zA-Z\s'-]{2,50}$/;
     if (!countryRegex.test(ticketData.Country)) {
       alert('Country must only contain letters, spaces, hyphens, or apostrophes');
@@ -94,6 +103,10 @@ function App () {
       alert('Province/State must only contain letters, spaces, periods, apostrophes, or hyphens');
       return;
     } 
+    //
+    //REGEX VALIDATION ENDS HERE
+    //
+    
     // Credit card number check (basic Luhn algorithm)
     // source: https://en.wikipedia.org/wiki/Luhn_algorithm
 
