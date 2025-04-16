@@ -308,17 +308,17 @@ function App() {
 
           {/* Right: Event Details */}
           <div className="col-md-6">
-            <h1 className="mb-3">Parcels Live in Concert</h1>
-            <h4 className="mb-2">Coke Cola Stadium, Toronto</h4>
-            <p className="mb-3">October 21, 2025 — 7:30 PM</p>
-            <p className="lead text-muted">
+            <h1 className="mb-3 alert alert-primary">Parcels: Live Tour 2025</h1>
+            <h4 className="mb-2 alert alert-danger">Coke Cola Stadium, Toronto</h4>
+            <p className="mb-3 alert alert-success">October 21, 2025 — 7:30 PM</p>
+            <p className="lead text-muted alert alert-info">
               Get ready to move — <strong>Parcels</strong> brings their
               signature blend of <em>disco, funk,</em> and <em>electro-pop</em>{' '}
               to the stage. Experience the energy, the groove, and the
               unforgettable vibes of a band that knows how to light up the
               night.
             </p>
-            <p className="text-success fw-bold">
+            <p className="text-success fw-bold alert alert-secondary">
               Tickets: $59.99 — Max 4 per order
             </p>
           </div>
